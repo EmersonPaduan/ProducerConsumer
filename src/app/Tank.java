@@ -3,18 +3,18 @@ package app;
 import java.util.ArrayList;
 
 /**
- * Tank - Classe representando o semáforo
+ * Tank - Classe representando a região crítica
+ * Utilizamos syncronized para controlar o acesso não concorrente
  */
 public class Tank {
 
-    //Este array representa a região crítica
-    private static ArrayList<Item> itens = new ArrayList<>();
+    private ArrayList<Item> itens = new ArrayList<>();
 
-    public static synchronized void add(int value){
+    public void add(int value){
         itens.add(new Item(value));
     }
 
-    public static synchronized int remove(){
+    public int remove(){
         int value = itens.get(0).getValue();
 
         itens.remove(itens.get(0));

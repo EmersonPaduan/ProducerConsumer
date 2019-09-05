@@ -13,6 +13,10 @@ public class Worker extends Thread{
         working = true;
     }
 
+    protected Tank getTank(){
+        return tank;
+    }
+    
     @Override
     public void run() {
         while(working){

@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "vmArgs": "--module-path /usr/lib/jvm/JavaFX/javafx-sdk-11.0.2/lib  --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics",
+            "mainClass": "app.App",
+            "projectName": "projProducerConsumer",
+            "console": "externalTerminal"
+        }
+    ]
+}

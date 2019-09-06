@@ -10,7 +10,7 @@ public class Consumer extends Worker {
     private TelaController controller;
 
     public Consumer(Tank tank, TelaController controller) {
-        super(tank);
+        super(tank, "Consumidor");
         this.controller = controller;
     }
 
@@ -29,7 +29,7 @@ public class Consumer extends Worker {
                     getTank().notify();
 
                 } else { // Vazio
-
+                    value = -1;
                     try {
                         controller.setTextConsumer("EM ESPERA");
                         controller.setTxtConsumerWaiting();
@@ -37,15 +37,19 @@ public class Consumer extends Worker {
                             getTank().wait(10000); // espera máxima e tenta novamente
                         }
                     } catch (Exception e) {
+                        controller.setTextConsumer("ERRO!");
                         System.out.println("Error on Consumer wait: " + e.getMessage());
                         return;
                     }
                 }
+            }
 
-                // simula 5 seg para consumir o item.
+            if (value > 0) {
+                // simula 5 seg para consumir o item. (Fora da região crítica)
                 try {
-                    sleep(10000);
+                    sleep(5000);
                 } catch (InterruptedException e) {
+                    controller.setTextConsumer("ERRO!");
                     System.out.println(e.getMessage());
                     return;
                 }

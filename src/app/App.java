@@ -35,10 +35,12 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Exemplo SO v0.1");
+        stage.setTitle("Exemplo SO v0.2");
 
         TelaController controller = (TelaController) fxmlLoader.getController();
 
+        controller.getPainel().setDisable(true);
+        
         Tank tank = new Tank(3);
         producer = new Producer(tank, controller);
         consumer = new Consumer(tank, controller);

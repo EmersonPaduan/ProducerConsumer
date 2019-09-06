@@ -12,7 +12,7 @@ public class Producer extends Worker {
     private TelaController controller;
 
     public Producer(Tank tank, TelaController controller) {
-        super(tank);
+        super(tank, "Produtor");
         this.controller = controller;
     }
 
@@ -28,6 +28,7 @@ public class Producer extends Worker {
                     sleep(1000);
                     controller.setTextProducer(controller.getTextProducer() + ".");
                 } catch (InterruptedException e) {
+                    controller.setTextProducer("ERRO!");
                     System.out.println(e.getMessage());
                     return;
                 }
@@ -42,6 +43,7 @@ public class Producer extends Worker {
                         getTank().wait(10000);
                     }
                 }catch(Exception e){
+                    controller.setTextProducer("ERRO!");
                     System.out.println("Error on Producer wait: " + e.getMessage());
                     return;
                 }

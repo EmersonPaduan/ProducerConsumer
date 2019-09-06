@@ -8,7 +8,8 @@ public class Worker extends Thread{
     private Tank tank;
     private boolean working;
 
-    public Worker(Tank tank){
+    public Worker(Tank tank, String name){
+        super(name);
         this.tank = tank;
         working = true;
     }

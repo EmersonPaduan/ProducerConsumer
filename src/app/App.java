@@ -36,7 +36,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL url = getClass().getResource("../telas/Tela2.fxml");
+        URL url = getClass().getResource("../telas/Tela.fxml");
 
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();

@@ -1,8 +1,8 @@
 package telas;
 
-import java.awt.TextField;
-
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  * TelaController
@@ -16,7 +16,7 @@ public class TelaController {
     private TextField txtConsumer;
 
     @FXML
-    private TextField txtContainer;
+    private TextArea txtContainer;
 
 
     public void setTextProducer(){

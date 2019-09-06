@@ -39,7 +39,7 @@ public class App extends Application {
 
         TelaController controller = (TelaController) fxmlLoader.getController();
 
-        Tank tank = new Tank();
+        Tank tank = new Tank(3);
         producer = new Producer(tank, controller);
         consumer = new Consumer(tank, controller);
 

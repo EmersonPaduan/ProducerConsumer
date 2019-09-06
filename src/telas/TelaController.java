@@ -27,6 +27,14 @@ public class TelaController {
         return txtProducer.getText();
     }
 
+    public void setTextConsumer(String txt){
+        txtConsumer.setText(txt);
+    }
+
+    public String getTextConsumer(){
+        return txtConsumer.getText();
+    }
+
     public void setTextContainer(String txt){
         txtContainer.setText(txt);
     }
@@ -34,5 +42,20 @@ public class TelaController {
     public String getTextContainer(){
         return txtContainer.getText();
     } 
-    
+
+    public void setTxtProducerWaiting(){
+        //txtProducer.setStyle("-fx-background-color: red; -fx-text-fill: white");
+    }
+
+    public void setTxtProducerWorking(){
+        //txtProducer.setStyle("-fx-background-color: white; -fx-text-fill: black");
+    }
+
+    public void setTxtConsumerWaiting(){
+        //txtConsumer.setStyle("-fx-background-color: red; -fx-text-fill: white");
+    }
+
+    public void setTxtConsumerWorking(){
+        //txtConsumer.setStyle("-fx-background-color: white; -fx-text-fill: black");
+    }    
 }

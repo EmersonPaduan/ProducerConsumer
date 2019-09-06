@@ -29,15 +29,28 @@ public class Producer extends Worker {
                     controller.setTextProducer(controller.getTextProducer() + ".");
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
+                    return;
                 }
             }
             //acesso a regiao critica para inserir o item
             synchronized(getTank()){
+                try{
+                    controller.setTextProducer("EM ESPERA");
+                    controller.setTxtProducerWaiting();
+                    while(isWorking() && getTank().isFull()) {
+                        //espera máxima e faz nova tentativa
+                        getTank().wait(10000);
+                    }
+                }catch(Exception e){
+                    System.out.println("Error on Producer wait: " + e.getMessage());
+                    return;
+                }
+                controller.setTxtProducerWorking();
                 getTank().add(ciclo);
-                controller.setTextContainer(getTank().showAll());
+                controller.setTextContainer(getTank().getAll());
+                //notifica o consumidor
                 getTank().notify();
             }
-            
         }
         System.out.println("End Producer.");
     }

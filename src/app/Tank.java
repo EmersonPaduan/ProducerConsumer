@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Tank - Classe representando a região crítica
- * Utilizamos syncronized para controlar o acesso não concorrente
  */
 public class Tank {
 

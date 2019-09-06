@@ -1,12 +1,17 @@
 package app;
 
+import telas.TelaController;
+
 /**
  * Consumer
  */
 public class Consumer extends Worker {
 
-    public Consumer(Tank tank) {
+    private TelaController controller;
+
+    public Consumer(Tank tank, TelaController controller) {
         super(tank);
+        this.controller = controller;
     }
 
     @Override
@@ -14,6 +19,7 @@ public class Consumer extends Worker {
         while(isWorking()){
             
         }
+        System.out.println("End Consumer.");
     }
 
 

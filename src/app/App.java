@@ -20,18 +20,11 @@ import telas.TelaController;
 
 public class App extends Application {
 
+    private Producer producer;
+    private Consumer consumer;
+
     public static void main(String[] args) throws Exception {
-
         launch(args);
-        /*
-        Tank tank = new Tank();
-        Producer producer = new Producer(tank);
-        Consumer consumer = new Consumer(tank);
-
-        producer.start();
-        consumer.start();
-        */
-        
     }
 
     @Override
@@ -44,8 +37,21 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setTitle("Exemplo SO v0.1");
 
-        //TelaController controller = (TelaController) fxmlLoader.getController();
+        TelaController controller = (TelaController) fxmlLoader.getController();
+
+        Tank tank = new Tank();
+        producer = new Producer(tank, controller);
+        consumer = new Consumer(tank, controller);
+
+        producer.start();
+        consumer.start();
 
         stage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        producer.stopWork();
+        consumer.stopWork();
     }
 }

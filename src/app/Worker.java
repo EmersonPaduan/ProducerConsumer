@@ -17,13 +17,14 @@ public class Worker extends Thread{
         return tank;
     }
     
+    /*
     @Override
     public void run() {
         while(working){
             
         }
     }
-
+*/
     public void stopWork(){
         working = false;
     }

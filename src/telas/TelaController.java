@@ -19,8 +19,20 @@ public class TelaController {
     private TextArea txtContainer;
 
 
-    public void setTextProducer(){
-        
+    public void setTextProducer(String txt){
+        txtProducer.setText(txt);
     }
+
+    public String getTextProducer(){
+        return txtProducer.getText();
+    }
+
+    public void setTextContainer(String txt){
+        txtContainer.setText(txt);
+    }
+
+    public String getTextContainer(){
+        return txtContainer.getText();
+    } 
     
 }

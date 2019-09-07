@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="painel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.TelaController">
+<AnchorPane fx:id="painel" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.TelaController">
    <children>
       <VBox alignment="CENTER" layoutX="250.0" layoutY="82.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" text="Produtor" textAlignment="CENTER" />
-            <TextField fx:id="txtProducer" alignment="CENTER" disable="true" focusTraversable="false" prefHeight="30.0" prefWidth="300.0" />
-            <Label text="Consumidor" />
-            <TextField fx:id="txtConsumer" alignment="CENTER" disable="true" focusTraversable="false" prefHeight="30.0" prefWidth="300.0" />
-            <Label text="Fila" />
-            <TextArea fx:id="txtContainer" disable="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" />
+            <Label alignment="CENTER" text="Produtor" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="txtProducer" alignment="CENTER" disable="true" focusTraversable="false" prefHeight="30.0" prefWidth="300.0">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin></TextField>
+            <Label text="Consumidor">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="txtConsumer" alignment="CENTER" disable="true" focusTraversable="false" prefHeight="30.0" prefWidth="300.0">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin></TextField>
+            <Label text="Fila">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <TextArea fx:id="txtContainer" disable="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin></TextArea>
+            <Label alignment="BOTTOM_LEFT" text="Simulador: Exemplo de uso de threads com semáforos e sleep/wakeUp" wrapText="true">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </Label>
          </children>
       </VBox>
    </children>

@@ -1,11 +1,15 @@
 package telas;
 
-import javafx.event.EventHandler;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 
 /**
  * TelaController
@@ -25,21 +29,20 @@ public class TelaController {
     private AnchorPane painel;
 
 
-    // bloquear enventos do mouse no painel para evitar conflitos de atualização de tela
-    // com os métodos usados pelas threads
-
-    public TelaController(){
-        //EventHandler<MouseEvent> handler = MouseEvent::consume;
-        //painel.addEventFilter(MouseEvent.ANY, handler);
-        //painel.setDisable(true);
-    }
-
     public AnchorPane getPainel(){
         return painel;
     }
     
     public synchronized void setTextProducer(String txt){
         txtProducer.setText(txt);
+    }
+
+    public synchronized void setTextProducer(String txt, Color cor){
+        //txtProducer.setStyle("-fx-background-color: "+ corFundo +"; -fx-text-fill: "+corFonte);
+        Platform.runLater(() -> {
+            txtProducer.setBackground( new Background(new BackgroundFill(cor, CornerRadii.EMPTY, Insets.EMPTY)));
+            txtProducer.setText(txt);
+        });
     }
 
     public synchronized String getTextProducer(){
@@ -50,18 +53,29 @@ public class TelaController {
         txtConsumer.setText(txt);
     }
 
+    public synchronized void setTextConsumer(String txt, Color cor){
+        //txtConsumer.setStyle("-fx-background-color: "+ corFundo +"; -fx-text-fill: "+corFonte);
+        Platform.runLater(() -> {
+            txtConsumer.setBackground( new Background(new BackgroundFill(cor, CornerRadii.EMPTY, Insets.EMPTY)));
+            txtConsumer.setText(txt);
+        });
+    }
+
     public synchronized String getTextConsumer(){
         return txtConsumer.getText();
     }
 
     public synchronized void setTextContainer(String txt){
-        txtContainer.setText(txt);
+        Platform.runLater(() -> {
+            txtContainer.setText(txt);
+        });
     }
 
     public synchronized String getTextContainer(){
         return txtContainer.getText();
     } 
 
+    /*
     public synchronized void setTxtProducerWaiting(){
         //txtProducer.setStyle("-fx-background-color: green; -fx-text-fill: white");
     }
@@ -76,5 +90,6 @@ public class TelaController {
 
     public synchronized void setTxtConsumerWorking(){
         //txtConsumer.setStyle("-fx-background-color: white; -fx-text-fill: black");
-    }    
+    } 
+    */   
 }

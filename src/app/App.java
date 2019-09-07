@@ -14,7 +14,7 @@ import telas.TelaController;
  * Disciplina: Sistemas Operacionais
  * 
  * @author Emerson S. Paduan
- * @version 0.1
+ * @version 0.3
  * 
  */
 
@@ -35,11 +35,9 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Exemplo SO v0.2");
+        stage.setTitle("Exemplo SO v0.3");
 
         TelaController controller = (TelaController) fxmlLoader.getController();
-
-        controller.getPainel().setDisable(true);
         
         Tank tank = new Tank(3);
         producer = new Producer(tank, controller);

@@ -1,6 +1,5 @@
 package app;
 
-import javafx.scene.paint.Color;
 import telas.TelaController;
 
 /**
@@ -22,9 +21,8 @@ public class Consumer extends Worker {
             // acesso a regiao critica para remover o item
             synchronized (getTank()) {
                 if (getTank().hasItens()) {
-                    //controller.setTxtConsumerWorking();
                     value = getTank().remove();
-                    controller.setTextConsumer("Removido: " + value, Color.WHITE);
+                    controller.setTextConsumer("Removido: " + value, "black", "white");
                     controller.setTextContainer(getTank().getAll());
                     // notifica o produtor
                     getTank().notify();
@@ -32,13 +30,12 @@ public class Consumer extends Worker {
                 } else { // Vazio
                     value = -1;
                     try {
-                        controller.setTextConsumer("EM ESPERA", Color.GREEN);
-                        //controller.setTxtConsumerWaiting();
+                        controller.setTextConsumer("EM ESPERA", "white", "green");
                         while (isWorking() && getTank().isEmpty()) {
                             getTank().wait(10000); // espera máxima e tenta novamente
                         }
                     } catch (Exception e) {
-                        controller.setTextConsumer("ERRO!", Color.RED);
+                        controller.setTextConsumer("ERRO!", "white", "red");
                         System.out.println("Error on Consumer wait: " + e.getMessage());
                         return;
                     }
@@ -50,7 +47,7 @@ public class Consumer extends Worker {
                 try {
                     sleep(5000);
                 } catch (InterruptedException e) {
-                    controller.setTextConsumer("ERRO!", Color.RED);
+                    controller.setTextConsumer("ERRO!", "white", "red");
                     System.out.println(e.getMessage());
                     return;
                 }
